@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopChey</title>
+    <link rel="icon" href="sch.png" />
+    <link rel="stylesheet" href="Ecommerce.css" async />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+        .container {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 10% 80% 10%;
+            grid-template-rows: 10% 80% 10%;
+        }
+
+        .aside {
+    position: absolute;  /* Allows it to grow as content grows */
+    top: 50px;  /* Below the top bar */
+    left: 0;
+    width: 5vw;
+    min-height: 100%;  /* Expands with content */
+    background-color: blue;
+    z-index: 999;
+}
+
+
+        .top {
+            background-color: black;
+            width: 100vw;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        .iphone15 {
+            display: flex;
+            align-items: flex-start;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .iphone15 img {
+            width: 500px;
+            height: 500px;
+            margin-top: 90px;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            margin-left: 30px;
+            margin-top: 90px;
+            font-size: 30px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .buynow {
+            font-size: 20px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: yellowgreen;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: blue;
+            padding: 10px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .search{
+    border-radius: 20px;
+    width:700px;
+    height:40px;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size:20px;
+    border-style: solid;
+    padding-left: 30px;
+    font-family: Times New Roman;
+}
+.search-container{
+    position: relative;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 255, 0.977);
+    
+}
+.fa-search {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);/* this will moves the element vertically 50% (Y-->vertical X--horizantal) */
+    color: skyblue;
+   /*-50 moves element up by half of its own height
+   50 moves element down to the middle of its parnt */
+    margin-top: 8px;
+    
+}
+        .loginlogo,
+        .cartlogo {
+            margin-left: 20px;
+        }
+
+        .login,
+        .cart {
+            margin-left: 5px;
+        }
+
+        .spc {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2 class="spc">
+            <b><i>SHOPCHEY</i></b>
+        </h2>
+        <div class="search-container">
+            <i class="fa fa-search" style="font-size: 20px"></i>
+            <input
+                type="text"
+                class="search"
+                placeholder="  Search For Products, Models,Brands And More"
+                id="val"
+            />
+        </div>
+        <img
+            src="logi.png"
+            class="loginlogo"
+            width="30"
+            height="30"
+            onclick="openLogin()"
+        />
+
+        <h3 class="login" onclick="openLogin()">Login</h3>
+        <script>
+            function openLogin() {
+                window.location.href = "login.html";
+            }
+            
+            function cart()
+            {
+                window.location.href="cart.html";
+            }
+            
+        document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+        </script>
+        <img src="cart.png" class="cartlogo" width="30" height="30"  onclick="cart()"/>
+        <h3 class="cart"  onclick="cart()">Cart</h3>
+        
+    </div>
+    <div class="container">
+        <div class="top"></div>
+        <div class="aside"></div>
+        <div class="iphone15">
+            <img src="cotton4.png" />
+            <div class="info">
+                <p data-product-name="Pants "> Navy Blue Cotton Blend Formal Trousers Pants For Mens
+                    </p>
+                <p style="color: green;">   4.5★</p>
+                <p data-product-model="Trouser"> Stylish Formal Trowser</p>
+                <p data-product-price=" ₹2,099  "> ₹2,099  INR*
+
+                </p>
+            </div>
+        </div>
+       
+        <div class="footer">
+            <button type="button" class="buynow" onclick="pay()">BUY NOW</button>
+            <button type="button" class="buynow" onclick="gotocart()">GoTo Cart</button>
+            <button type="button" class="buynow" onclick="addToCart(this)"
+           data-product-image="cotton4.png"
+        data-product-name="Trouser"
+        data-product-model=" Navy Blue Cotton Blend Formal Trousers For Mens"  
+
+        ₹2,099
+       
+        data-product-price=" ₹2,099  INR*">
+    ADD CART
+</button>
+
+<script>
+    function addToCart(button) {
+        const productImage = button.dataset.productImage;
+        const productName = button.dataset.productName;
+        const productModel = button.dataset.productModel;
+        const productPrice = button.dataset.productPrice;
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const itemExists = cart.some(item => {
+            return item.name === productName && item.model === productModel;
+        });
+
+        if (!itemExists) {
+            cart.push({
+                image: productImage,
+                name: productName,
+                model: productModel,
+                price: productPrice
+            });
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Item added to cart!");
+        } else {
+            alert("Item is already in the cart.");
+        }
+    }
+
+    function openCart() {
+        window.location.href = "cart.html";
+    }
+    function gotocart(){
+                window.location.href="cart.html";
+            }
+            function pay(){
+              window.location.href="buynow.html";
+            }
+        </script>
+</body>
+</html>

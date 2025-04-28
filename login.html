@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="icon"  href="sch.png">
+    <link rel="stylesheet" href="Ecommerce.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="login.css" async>
+</head>
+<body>
+    <div class="header" >
+<h2 class="spc"><b><i>ShopChey</i></b></h2>
+<div class="search-container ">
+<i class="fa fa-search"  style="font-size:20px"></i>
+<input type="text" class="search" placeholder="Search For Products, Models,Brands And More" id="val">
+    </div>
+    <img src="logi.png" class="loginlogo" width="30" height="30">
+    <h3 class="login">Login</h3>  
+<img src="cart.png" class="cartlogo" width="30" height="30" onclick="cart()">
+<h3 class="cart" onclick="cart()">Cart</h3>
+</div>
+<script>
+      function cart(){
+                window.location.href="cart.html";
+            }
+
+
+            
+        document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+</script>
+<p class="loginborder">Login<br/>To Access Your Orders</p>
+  <p class="mn"> Enter Your Mobile Number:</p> 
+  <input type="text" id="mntext" placeholder="Enter Mobile Number ">
+  <button type="button" id="otpbutton" onclick="GetOtp()" style="font-size:20px; border-radius: 10px;color:white; background-color: rgb(0, 132, 255);">Get Otp</button>
+ <p id="message"></p>
+ <p id="otp-send"></p>
+ <p id="otp-recieve">ENTER OTP:</p>
+ <input type="text" id="otp-recieved-text-box" placeholder="Enter Otp Here" autocomplete="off">
+<p id="otpmessage"></p>
+<button type="button" id="verify-otp" onclick="verifyOtp()" style="display:none">Verify OTP</button>
+ <script>
+    let genotp;
+   
+    function GetOtp() {
+    let mobileNumber = document.getElementById("mntext").value.trim();
+    
+    if(mobileNumber.length !== 10 || isNaN(mobileNumber)) {
+    alert("❌ Invalid input! Please enter a 10-digit mobile number.");
+    }  
+else{
+    
+    document.getElementById("message").innerHTML = "✅ OTP Sent Successfully";
+    document.getElementById("message").style.color = "green";
+    genotp=Math.floor(1000+Math.random()*9000);
+
+    document.getElementById("otp-send").innerHTML="OTP: "+genotp;
+    document.getElementById("otp-send").style.color="green";
+    document.getElementById("otp-recieve").style.display="block";
+    document.getElementById("otp-recieved-text-box").style.display="block";
+    document.getElementById("verify-otp").style.display="block";
+
+}
+
+}
+function verifyOtp(){
+    let enteredotp=document.getElementById("otp-recieved-text-box").value.trim();
+    if(enteredotp==genotp){
+        document.getElementById("otpmessage").innerHTML="✅ OTP Verified! Redirecting...";
+        document.getElementById("otpmessage").style.color="green";
+    setTimeout(()=>{
+        window.location.href="Ecommerce.html";
+    }, 1000);
+    }else{
+        document.getElementById("otpmessage").innerHTML="❌ Entered Invalid OTP.";
+        document.getElementById("otpmessage").style.color="red";
+    }
+}
+
+ </script>
+
+</body>
+</html>

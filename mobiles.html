@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Phones</title>
+    <link rel="icon" href="sch.png" />
+    <link rel="stylesheet" href="Ecommerce.css" async />
+    <link rel="stylesheet" href="mobiles.css" async/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+  <body>
+    <div class="header">
+      <h2 class="spc">
+        <b><i>SHOPCHEY</i></b>
+      </h2>
+      <div class="search-container">
+        <i class="fa fa-search" style="font-size: 20px"></i>
+        <input
+          type="text"
+          class="search"
+          placeholder="   Search For Products, Models,Brands And More"
+          id="val"/>
+      </div>
+      <img
+        src="logi.png"
+        class="loginlogo"
+        width="30"
+        height="30"
+        onclick="openLogin()"/>
+
+      <h3 class="login" onclick="openLogin()">Login</h3>
+      <script>
+        function openLogin() {
+          window.location.href = "login.html";
+        }
+        function openthis(){
+        window.location.href="mobileDescription.html";
+      }
+      function open16(){
+        window.location.href="iphone16description.html";
+      }
+      function s24(){
+        window.location.href="s24.html";
+      }
+      function s24ultra(){
+        window.location.href="s24ultra.html";
+      }
+      function moto(){
+        window.location.href="moto.html"
+      }
+      function oppo(){
+        window.location.href="oppo.html";
+      }
+      function poco(){
+        window.location.href="poco.html";
+      }
+      function oneplus(){
+        window.location.href="oneplus.html";
+      }
+      function cart(){
+        window.location.href="cart.html";
+      }
+      
+      document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+      </script>
+      <img src="cart.png" class="cartlogo" width="30" height="30"  onclick="cart()"/>
+      <h3 class="cart"  onclick="cart()">Cart</h3>
+      
+    </div>
+   <div class="body">
+    <div class="product"><img src="iphone15.png" onclick="openthis()"><p onclick="openthis()">IPhone 15 Pro (128GB Blue Titanium)<br/>  134,900.00 INR* </p></div>
+    <div class="product"><img src="iphone16.png" onclick="open16()"><p onclick="open16()"> IPhone16(128GB Ultramarine)<br/>₹79,900.00 INR*</p></div>
+    <div class="product"><img src="galaxyS24.png" onclick="s24()"><p>Samsung Galaxy S24 Ultra (256GB｜12GB Titanium Violet)<br/>₹130,398.00 INR*</p></div>
+    <div class="product"><img src="galaxys24ultra.png" onclick="s24ultra()"><p>Samsung Galaxy S24 Ultra (256GB Titanium Gray)<br/>₹ 82,999.00 INR*</p></div>
+    <div class="product"><img src="moto.webp" onclick="moto()"><p>Motorola Edge 40 Neo(soothing sea,128Gb) <br/>₹23,000.00 INR*</p></div>
+    <div class="product"><img src="oppof27pro.png" onclick="oppo()"><p>OPPO F27 Pro+ (Dusk Pink, 128GB) <br/>₹25,999.00 INR*</p></div>
+    <div class="product"><img src="pococ61.png" onclick="poco()"><p>POCO C61 (Diamond Dust Black,64GB) <br/>₹6,000.00 INR*</p></div>
+    <div class="product"><img src="oneplus.png" onclick="oneplus()"><p>OnePlus Nord CE4 lite 5G(Super Silver,128GB)<br/>₹17,500.00 INR*</p></div>
+    </div>
+    
+  
+  
+  </body>
+    </html>

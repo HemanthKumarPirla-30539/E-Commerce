@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotton-Styles</title>
+    <link rel="icon" href="sch.png" />
+    <style>
+        .header{
+    display:flex;
+    
+    background-color: rgba(0, 0, 255, 0.977);
+    width: 100%;
+    height: 70px;
+
+
+}
+.spc{
+    margin-left: 100px;
+    margin-top: 30px;
+    color: white;
+}
+.search{
+    border-radius: 20px;
+    width:700px;
+    height:40px;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size:20px;
+    border-style: solid;
+    padding-left: 30px;
+    font-family: Times New Roman;
+}
+.search-container{
+    position: relative;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 255, 0.977);
+}
+.fa-search {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);/* this will moves the element vertically 50% (Y-->vertical X--horizantal) */
+    color: skyblue;
+   /*-50 moves element up by half of its own height
+   50 moves element down to the middle of its parnt */
+    margin-top: 8px;
+    
+}
+
+.loginlogo{
+    position:relative;
+margin-top:20px;
+margin-left:20px;
+cursor: pointer;
+}
+.login{
+   
+    margin-top:20px;
+    font-family: Times New Roman;
+    margin-left:10px;
+    font-size: 20px;
+   cursor:pointer;
+
+}
+.cartlogo{
+    position: relative;
+    margin-top:20px;
+   margin-left:20px;
+   cursor: pointer;
+}
+.cart{
+    cursor: pointer;
+    margin-left:5px;
+    font-size: 20px;
+}
+.body
+{
+    margin-top:20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    gap: 20px;
+}
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.product img {
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+    width: 300px;
+    cursor: pointer;
+}
+.product span{
+    color:green;
+}
+p
+{
+    cursor: pointer;
+}
+p:hover{
+    color:blue;
+}
+    </style>
+</head>
+<body>
+    <script>
+        function openLogin(){
+            window.location.href="login.html";
+        }
+        function cart(){
+            window.location.href="cart.html";
+        }
+       function s1()
+       {
+        window.location.href="s1.html";
+       }
+       function s2(){
+        window.location.href="s2.html";
+       }
+       function s3(){
+        window.location.href="s3.html";
+       }
+       function s4(){
+        window.location.href="s4.html";
+       }
+       
+       document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+</script>
+    <div class="header">
+        <h2 class="spc">
+          <b><i>SHOPCHEY</i></b>
+        </h2>
+        <div class="search-container">
+          <i class="fa fa-search" style="font-size: 20px"></i>
+          <input
+            type="text"
+            class="search"
+            placeholder="   Search For Products, Models,Brands And More"
+            id="val"/>
+        </div>
+        <img
+          src="logi.png"
+          class="loginlogo"
+          width="30"
+          height="30"
+          onclick="openLogin()"/>
+  
+        <h3 class="login" onclick="openLogin()">Login</h3>
+        <img src="cart.png" class="cartlogo" width="30" height="30"  onclick="cart()"/>
+      <h3 class="cart"  onclick="cart()">Cart</h3>
+      
+    </div>
+
+    <div class="body">
+        <div class="product"><img src="shirts.png" onclick="s1()"><p onclick="s1()">Stylish Formal Shirts For Mens <br/>₹1,209<br/><span>4.1★</span></p></div>
+        <div class="product"><img src="cotton1.png" onclick="s2()"><p onclick="s2()">Men's Slim Fit Metal Trousers<br/>₹899<br/><span>4.0★</span></p></div>
+        <div class="product"><img src="cotton2.png" onclick="s3()"><p onclick="s3()">Mens cotton shirt pant combo set<br/>₹1,099 <br/><span>4.5★</span></span4.5></p></div>
+        <div class="product"><img src="cotton4.png" onclick="s4()"><p onclick="s4()">Navy Blue Cotton Blend Formal Trousers Pants For Mens<br/>₹2,099<br/><span>4.5★</span></p></div>
+    </div>
+</body>
+</html>

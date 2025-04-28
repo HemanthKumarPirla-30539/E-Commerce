@@ -1,0 +1,85 @@
+.loginborder
+ {
+  outline: 200px solid;
+  margin-left: 200px;
+  color: rgba(0, 0, 255, 0.324);
+  font-size: 60px;
+  display: inline-block;
+  margin-top: 300px;
+}
+.mn 
+{
+  position: absolute;
+  margin-left: 1200px;
+  top: 30%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: blue;
+  font-size: 24px;
+}
+#mntext 
+{
+  position: absolute;
+  margin-left: 450px;
+  bottom: 50%;
+  border: 8px solid;
+  font-size: 20px;
+
+}
+#message
+{
+  position:absolute;
+  font-size:20px;
+  font-family: 'Times New Roman', Times, serif;
+margin-left: 1200px;
+top:50%;
+}
+
+#otpbutton
+{
+  position: absolute;
+margin-top:420px;
+margin-left: 500px;
+}
+#otp-send
+{
+position: absolute;
+font-size:20px;
+font-family: 'Times New Roman', Times, serif;
+margin-left: 1250px;
+top:80%;
+}
+#otp-recieve
+{
+  position:absolute;
+  margin-left:1200px;
+  top:69%;
+ font-size:30px;
+ display: none;
+}
+
+#otp-recieved-text-box
+{
+  position:absolute;
+  margin-left: 1210px;
+  top:77%;
+  border-radius: 10px;
+  font-size:20px;
+  width:200px;
+  display: none;
+}
+#otpmessage
+{
+  position:absolute;
+  margin-left:1200px;
+  top:90%;
+  font-size:20px;
+  
+}
+#verify-otp
+{
+  position:absolute;
+  margin-left:1200px;
+  top:90%;
+}
