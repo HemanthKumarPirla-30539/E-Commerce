@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopChey</title>
+    <link rel="icon" href="sch.png" />
+    <link rel="stylesheet" href="Ecommerce.css" async />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    </head>
+  <body class="light-mode">
+    <div class="header">
+      <h2 class="spc">
+        <b><i>SHOPCHEY</i></b>
+      </h2>
+      <div class="search-container">
+        <i class="fa fa-search" style="font-size: 20px"></i>
+        
+        <input
+          type="text"
+          class="search"
+          placeholder="   Search For Products, Models,Brands And More"
+          id="val"   style="cursor: text;" />
+
+      </div>
+      <img
+        src="logi.png"
+        class="loginlogo"
+        width="30"
+        height="30"
+        onclick="openLogin()"
+      />
+
+      <h3 class="login" onclick="openLogin()">Login</h3>
+      <script>
+        function openLogin() {
+          window.location.href = "login.html";
+        }
+        function openMobiles(){
+          window.location.href="mobiles.html";
+        }
+        function ocart(){
+          window.location.href="cart.html";
+        }
+        function fashion(){
+          window.location.href="fashion.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+      </script>
+      <img src="cart.png" class="cartlogo" width="30" height="30" onclick="ocart()" />
+      <h3 class="cart" onclick="ocart()">Cart</h3>
+    </div>
+    <div class="body">
+      <div class="category">
+        <img
+          src="mobilelogo.jpg"
+          class="mblelogo"
+          width="300px"
+          height="300px"
+          onclick="openMobiles()"
+        />
+        <h2 class="category-title" onclick="openMobiles()">Mobiles</h2>
+      </div>
+      
+      <div class="category">
+        <img
+          src="fashionlogo.jpg"
+          class="fashion"
+          width="300px"
+          height="300px" onclick="fashion()"
+        />
+        <img src="nightmode.png" class="toggle" onclick="togglemode()"/>
+        <h2 class="category-title" onclick="fashion()">Fashion</h2>
+      </div>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider">
+          <img src="iphone15.png" alt="Product 1" onclick="i15()">
+          <img src="iphone16.png" alt="Product 2" onclick="i16()">
+          <img src="jeans4.png" alt="Product 3" onclick="jeans()">
+          <img src="tshirt4.png" alt="Product 4" onclick="tshirt()">
+          <img src="check2.png" alt="Product 5" onclick="check()">
+          <img src="shirts.png" alt="Product 6" onclick="cotton()">
+      </div>
+  </div>
+  <script>
+    function i15(){
+      window.location.href="mobileDescription.html";
+    }
+    function i16(){
+      window.location.href="iphone16description.html";
+    }
+    function jeans(){
+      window.location.href="jeans4.html";
+    }
+    function tshirt(){
+      window.location.href="t4.html";
+    }
+    function check(){
+      window.location.href="c2.html";
+    }
+    function cotton(){
+      window.location.href="s1.html";
+    }
+    function togglemode(){
+      var body=document.body;
+      if(body.classList.contains("light-mode")){
+        body.classList.remove("light-mode");
+        body.classList.add("darkmode");
+      }
+      else{
+        body.classList.add("light-mode");
+        body.classList.remove("darkmode");
+      }
+    }
+  </script>
+  </body>
+</html>

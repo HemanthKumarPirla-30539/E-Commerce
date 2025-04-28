@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopChey</title>
+    <link rel="icon" href="sch.png">
+    <link rel="stylesheet" href="Ecommerce.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <style>
+        .payment {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .payment label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .payment input, .payment select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-options {
+            margin-top: 15px;
+        }
+        .payment-options label {
+            font-weight: normal;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        .payment-options input {
+            margin-top: 12px;
+        }
+        #payment-image {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+        }
+        #confirm-message {
+            display: none;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="font-size:40px; font-family:Algerian; text-align: center;">Place your Order</h2>
+
+    <div class="payment">
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+    
+        <label>Phone Number:</label>
+        <input type="text" id="phone" placeholder="Enter your phone number">
+    
+        <label>State:</label>
+        <input list="states" id="state" placeholder="Select your state">
+        <datalist id="states">
+            <option value="Andhra Pradesh">
+            <option value="Tamil Nadu">
+            <option value="Karnataka">
+            <option value="Telangana">
+            <option value="Maharashtra">
+            <option value="Uttar Pradesh">
+        </datalist>
+    
+        <label>District:</label>
+        <input type="text" id="district" placeholder="Enter your district">
+    
+        <label>Village:</label>
+        <input type="text" id="village" placeholder="Enter your village">
+    
+        <label>Street:</label>
+        <input type="text" id="street" placeholder="Enter your street">
+    
+        <label>Pincode:</label>
+        <input type="text" id="pincode" placeholder="Enter your pincode">
+    
+        <label>Total Cost:</label>
+        <input type="number" id="total-cost" placeholder="Enter total cost">
+    
+        <div class="payment-options">
+            <label>Select Payment Method:</label><br>
+            <input type="radio" id="upi" name="payment" value="upi" onclick="showQRCode()">
+            <label for="upi">UPI</label>
+    
+            <input type="radio" id="cod" name="payment" value="cod" onclick="hideQRCode()">
+            <label for="cod">Cash on Delivery</label>
+        </div>
+
+        <img id="payment-image" src="QR.jpg" alt="QR Code">
+
+        <button onclick="submitOrder()" style="margin-top: 20px; padding: 10px; width: 100%; background: blue; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit Order</button>
+
+        <div id="confirm-message">✔ Order Confirmed!</div>
+    </div>
+
+    <script>
+        function showQRCode() {
+            let totalCost = document.getElementById("total-cost").value;
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let state = document.getElementById("state").value;
+            let district = document.getElementById("district").value;
+            let village = document.getElementById("village").value;
+            let street = document.getElementById("street").value;
+            let pincode = document.getElementById("pincode").value;
+
+            // Check if all fields are filled before showing QR
+            if (!name || !phone || !state || !district || !village || !street || !pincode || !totalCost) {
+                alert("Please fill all details before selecting UPI.");
+                document.getElementById("upi").checked = false; // Uncheck the UPI radio button
+                return;
+            }
+
+            document.getElementById("payment-image").style.display = "block";
+        }
+
+        function hideQRCode() {
+            document.getElementById("payment-image").style.display = "none";
+        }
+
+        function submitOrder() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let state = document.getElementById("state").value;
+            let district = document.getElementById("district").value;
+            let village = document.getElementById("village").value;
+            let street = document.getElementById("street").value;
+            let pincode = document.getElementById("pincode").value;
+            let totalCost = document.getElementById("total-cost").value;
+            let paymentMethod = document.querySelector('input[name="payment"]:checked');
+
+            if (!name || !phone || !state || !district || !village || !street || !pincode || !totalCost || !paymentMethod) {
+                alert("Please fill in all the details.");
+                return;
+            }
+
+            if (paymentMethod.value === "cod") {
+                document.getElementById("confirm-message").style.display = "block";
+            } else {
+                alert("Scan the QR code to complete payment.");
+            }
+        }
+    </script>
+
+</body>
+</html>

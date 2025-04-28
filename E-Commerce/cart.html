@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="icon" href="sch.png" />
+ <style>
+    .header{
+    display:flex;
+                           
+    background-color: rgba(0, 0, 255, 0.977);
+    width: 100%;
+    height: 70px;
+
+
+}
+.spc{
+    margin-left: 100px;
+    margin-top: 30px;
+    color: white;
+}
+.search{
+    border-radius: 20px;
+    width:700px;
+    height:40px;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size:20px;
+    border-style: solid;
+    padding-left: 30px;
+    font-family: Times New Roman;
+}
+.search-container{
+    position: relative;
+    margin-left: 20px;
+    background-color: rgba(0, 0, 255, 0.977);
+}
+.fa-search {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);/* this will moves the element vertically 50% (Y-->vertical X--horizantal) */
+    color: skyblue;
+   /*-50 moves element up by half of its own height
+   50 moves element down to the middle of its parnt */
+    margin-top: 8px;
+    
+}
+
+.loginlogo{
+    position:relative;
+margin-top:20px;
+margin-left:20px;
+cursor: pointer;
+}
+.login{
+   
+    margin-top:20px;
+    font-family: Times New Roman;
+    margin-left:10px;
+    font-size: 20px;
+   cursor:pointer;
+
+}
+.cartlogo{
+    position: relative;
+    margin-top:20px;
+   margin-left:20px;
+   cursor: pointer;
+}
+.cart{
+    cursor: pointer;
+    margin-left:5px;
+    font-size: 20px;
+}
+
+ </style>
+</head>
+<body>
+    <div class="header">
+        <h2 class="spc">
+          <b><i>SHOPCHEY</i></b>
+        </h2>
+        <div class="search-container">
+          <i class="fa fa-search" style="font-size: 20px"></i>
+          <input
+            type="text"
+            class="search"
+            placeholder="   Search For Products, Models,Brands And More" id="val"/>
+        </div>
+        <img
+          src="logi.png"
+          class="loginlogo"
+          width="30"
+          height="30"
+          onclick="openLogin()"
+        />
+  
+        <h3 class="login" onclick="openLogin()">Login</h3>
+        <script>
+          function openLogin() {
+            window.location.href = "login.html";
+          }
+          function openMobiles(){
+            window.location.href="mobiles.html";
+          }
+          function cart(){
+                window.location.href="cart.html";
+            }
+            
+        document.addEventListener("DOMContentLoaded", function () {
+    let searchInput = document.getElementById("val");
+
+    searchInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        let query = searchInput.value.trim().toLowerCase();
+
+        // Check if the query matches "mobiles"
+        if (query === "mobiles") {
+          window.location.href = "mobiles.html";
+        }
+        // Check for fashion-related keywords
+        else if (
+          query === "shirt" ||
+          query=== "shirts"||
+          query === "tshirt" ||
+          query === "tshirts" ||
+          query === "pants" ||
+          query === "jeans"
+        ) {
+          window.location.href = "fashion.html";
+        } 
+        // Optional: Alert if the search term is not recognized
+        else {
+          alert("No matching category found!");
+        }
+      }
+    });
+  });
+        </script>
+        <img src="cart.png" class="cartlogo" width="30" height="30" onclick="cart()"/>
+        <h3 class="cart" onclick="cart()">Cart</h3>
+      </div>
+    <h1 style="margin-left: 20px;">Your Cart</h1>
+    <div id="cart-items"></div>
+    <p id="cart-total" style="margin-left: 20px;"></p>
+    <button onclick="clearCart()" style="margin-left:20px;border-radius: 5px; font-size: 20px; background-color:blue; color: white; cursor: pointer;">Clear Cart</button>
+    
+<script>
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const cartTotalP = document.getElementById('cart-total');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            cartItemsDiv.innerHTML = ''; 
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" width="100" />
+                    <p>${item.name}</p>
+                    <p>${item.model}</p>
+                    <p>Price: ${item.price}</p>
+                    <hr>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+                total += parseFloat(item.price);
+            });
+
+            cartTotalP.textContent = `Total: ${total.toFixed(2)} INR`;
+        }
+
+        function clearCart(){
+            localStorage.removeItem('cart');
+            displayCart();
+        }
+
+        displayCart(); 
+    </script>
+    
+</html>
